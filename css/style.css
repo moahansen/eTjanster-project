@@ -1,0 +1,57 @@
+
+body{
+    margin:0px;
+    background-image: url(../img/bg-img.jpeg);
+    font-family: Arial Nova;
+}
+
+
+#meny{
+    background-color:rgba(132, 218, 233, 0.651);
+    margin-top: 0px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+#meny li{
+    display:inline;
+    margin-left: 30px;
+}
+
+#meny a{
+    text-decoration: none;
+    color: inherit;
+    font-size: 18px;
+}
+
+#loginBtn{
+    margin-left: 1150px;
+    background-color: rgb(255, 255, 255);
+    padding:4px;
+    padding-left:15px;
+    padding-right:15px;
+    border-radius: 10px 10px 10px 10px;
+}
+
+.btn{
+    background-color: orange;
+    padding:4px;
+    padding-left:15px;
+    padding-right:15px;
+    border-radius: 10px 10px 10px 10px;
+    
+}
+
+#bodyDiv{
+    margin-top: 400px;
+    padding: 30px;
+    text-align: center;
+    background-color:rgb(255, 255, 255);
+}
+
+#mapid{
+    width: 600px; 
+    height: 400px; 
+    position: relative;
+    border-radius: 6px 6px 6px 6px;
+}

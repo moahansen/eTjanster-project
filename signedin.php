@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <head>
-    <link rel="stylesheet" type="text/css" href="css/signedin.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
    crossorigin=""/>
@@ -12,9 +12,14 @@
 </head>
 
 <body>
-    <h1>badväder</h1>
-    
-    <div id="mapid" style="width: 600px; height: 400px; position: relative; outline: none;" 
+
+
+<ul id="meny">
+     <a href="logOut_process.php" class="btn">Logga ut </a>
+</ul>
+<div id="bodyDiv">  
+
+    <div id="mapid">
         class="leaflet-container leaflet-fade-anim leaflet grab leaflet-touch-drag" tabindex="0">
     </div>
 
@@ -105,5 +110,6 @@
 
     //https://kartor.uppsala.se/ags02/rest/services/iExternaKartan/ParkNaturFriluft/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=json
 </script>
+</div>
 
 </body>
