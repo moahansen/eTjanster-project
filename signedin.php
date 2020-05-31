@@ -1,5 +1,6 @@
 <?php
-session_start()
+session_start();
+
 ?>
 <!DOCTYPE html>
 
@@ -16,10 +17,39 @@ session_start()
 
 <body>
 
-
+<?php
+if(count($_SESSION)>0)
+{
+ if($_SESSION['userType'] == 2 )
+   {
+               ?>
 <ul id="meny">
      <a href="logOut_process.php" class="btn">Logga ut </a>
+      <a href="deleteComment.php" class="btn">Granska kommentarer och användare </a>
 </ul>
+<?php 
+   } 
+    else
+     {
+               ?>
+<ul id="meny"> <br>
+     <a href="logOut_process.php" class="btn">Logga ut </a>
+     
+</ul>
+<?php 
+   }
+}
+   else
+   { 
+       ?>
+<ul id="meny">
+     <a href="login.php" class="btn">Logga in </a>
+     <a href="register.php" class="btn">Registrera dig </a>
+</ul>
+<?php
+   }
+
+?>
 <div id="bodyDiv">  
 
     <div id="mapid">
@@ -116,3 +146,4 @@ session_start()
 </div>
 
 </body>
+</html>

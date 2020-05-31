@@ -1,9 +1,11 @@
 <?php 
-  //instansierar ett sqlite objekt för att koppla med databasen
-
-
+ session_start()
 //Kollar om användaren är inloggad för att veta om denne får se sidan eller ska redirectas till inloggningsidan
 
+//kollar om det finns sessionsvariabler sparade
+if(count($_SESSION)>0)
+{
+    
 
   ?>
 <html>
@@ -17,7 +19,6 @@
     <?php
     //unsetar för destroyar sessionen och redirectar användaren till startsidan
     
-   session_start();
    unset($_SESSION['loggedIn']);
    unset($_SESSION['name']);
    unset($_SESSION['email']);
@@ -27,7 +28,11 @@
     
     ?>
     <?php
-
+}
+else
+{
+   header('Location: login.php');
+}
 //om användaren inte var inloggad skickas denne här till inloggningssidan
 
 ?>

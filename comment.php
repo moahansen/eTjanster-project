@@ -8,7 +8,7 @@
     <?php
 $db = new SQLite3("./db/project.db");
 
-$query = "SELECT * FROM Comments";
+$query = "SELECT * FROM Comments WHERE Badplats = '".$_POST['Badplats']."'";
 
  ?>
 <a href="login.php" class="btn">Logga in för att lämna en kommentar </a>

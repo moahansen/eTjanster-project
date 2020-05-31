@@ -34,7 +34,9 @@ if(count($_SESSION)>0)
       
         <label for="message">Meddelande:</label><br>
         <textarea id="message" name= "message" rows="10" cols="50"> </textarea><br>
+        <input type='hidden' name='badplats' id = 'badplats' value= "<?php echo $badplats?>";> 
         <input type="submit" value="Submit">
+        
 </form>
 
 <br></br>
@@ -47,7 +49,8 @@ if(count($_SESSION)>0)
 
 <?php
 //query för att hämta alla kommentarer som finns i databasen för att kunna presentera dem i en tabell
-$result = $db->query ("SELECT * From Comments");
+
+$result = $db->query ("SELECT * FROM Comments WHERE Badplats = '".$_POST['Badplats']."'");
 while ($row = $result->fetchArray()) //Sa lange som en ny rad kan h¨a mtas som en array kommer den radens namn och meddelande visas i tabellen
  {
         echo "<tr>";

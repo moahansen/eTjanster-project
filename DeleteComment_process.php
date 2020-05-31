@@ -5,20 +5,24 @@
 
 <script type="text/javascript" src="js/deleteValidation.js"></script>
 </head>
-
+<?php
+session_start();
+//kollar om det finns sessionsvariabler sparade
+if(count($_SESSION)>0)
+{
+    //om userype = 2 körs denna kod
+    if($_SESSION['userType'] == 2)
+    {
+    ?>
 
 <body>
 
 <?php
-session_start();
 $db = new SQLite3("./db/project.db");
-//Funktion för att ta bort ett meddelande genom att skriva det namn som meddelandet är adresserat till
+//sparar input i variabel
 $delete=$_POST['delete'];
 
-
-
-    //Validering av att det bara är en adminanvändare som kan radera ett meddelande
-
+    //query för att ta bort kommentar med samma id som input
             $sql = "DELETE FROM Comments WHERE (Id LIKE '%".$delete."%')";
             $stmt = $db -> prepare ($sql); //H¨ar f¨o rbereds v˚ar query
 
@@ -26,11 +30,15 @@ $delete=$_POST['delete'];
  $stmt->execute();
              if($stmt)
             {
-                echo "Meddelande raderat";
+                header('Location: deleteComment.php');
             }
+            
+    }
+            
             else
             {
-                echo "ingen anslutning";
+                header('Location: login.php');
+            }
             }
 		
 			
