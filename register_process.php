@@ -22,18 +22,19 @@ if($result == null)
 {
   //lösenordet hashas
       $hashedPwd = password_hash($password, PASSWORD_DEFAULT);    
+      $userType=1;
 
-
- $sql = ' INSERT INTO "Users" ("Email", "Name", "Password") VALUES (:email, :name, :password)';
+ $sql = ' INSERT INTO "Users" ("Email", "Name", "Password", "UserType") VALUES (:email, :name, :password, :usertype)';
  $stmt = $db -> prepare ($sql); //förbereder queryn
  $stmt -> bindParam (':email', $email, SQLITE3_TEXT );//binder $email till queryn
  $stmt -> bindParam (':name', $name , SQLITE3_TEXT ) ;// binder $name till queryn
  $stmt -> bindParam (':password', $hashedPwd , SQLITE3_TEXT ) ;//bindedr hashat lösenord till queryn
+ $stmt -> bindParam (':usertype', $userType , SQLITE3_INTEGER ) ;// binder $name till queryn
  $stmt->execute(); //kör queryn
  //om stmt== true lyckades querin och användaren redirectas till inloggningsidan
 if($stmt)
 {
-    
+    $db->close();
     header('Location: login.php');
 }
 }

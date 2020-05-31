@@ -71,9 +71,12 @@ else
 //om det hashade lösenordet i databasen matchar med $password sätts sessionsvariablen loggedIn till true och email till användarens mail.
 if (password_verify($password, $hashedPwd)) 
 {
-    session_start();
-    $_SESSION['loggedIn'] = true;
+    $access=true;
+$_Session['access']=$access;
     $_SESSION['email'] = $email;
+     $query1 = "SELECT  UserType FROM Users where Email = '".$email."'";    
+    $rows1 = $db->querySingle($query1);  
+     $_SESSION['userType'] = $rows1;  
     
     //query för att hämta användarens namn och spara i sessionvaribeln name
     $query = "SELECT  Name FROM Users where Email = '".$email."'";    
@@ -93,9 +96,11 @@ else
  <a href="loginView.php" class="btn">Tillbaka </a>
  <?php
 }
+}
+    }
     
-}
-}
+
+
 
 //funktion för att kunna visa javascript alerts.
 function alert($msg) {

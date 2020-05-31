@@ -8,6 +8,7 @@ $_message = trim($_message);
 if($_message == "")
 {
 alert("tomt meddelande");
+
 }
  
 else
@@ -15,12 +16,14 @@ else
  $sql = ' INSERT INTO "Comments" ("Name", "Message") VALUES ( :name, :message)';
  $stmt = $db -> prepare ($sql); //H¨ar f¨o rbereds v˚ar query
 
- $stmt -> bindParam (':name', $_SESSION['name'], SQLITE3_TEXT ) ;
+ 
+
+$stmt -> bindParam (':name', $_SESSION['name'], SQLITE3_TEXT ) ;
  $stmt -> bindParam (':message', $_message , SQLITE3_TEXT ) ;
  $stmt->execute();
  $db->close();
 
-header('Location: index.php');
+header('Location: loggedInComment.php');
 }
 
 function alert($msg) {
