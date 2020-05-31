@@ -1,21 +1,3 @@
-<?php 
-  //instansierar ett sqlite objekt för att koppla med databasen
- session_start();
-$db = new SQLite3("./db/project.db");
-
- 
-
-if(count($_SESSION)>0)
-{
-   if($_SESSION['userType'] == 2)
-   {
-          header('Location: DeleteComment.php');
-   }
-
-//Kollar om användaren är inloggad för att veta om denne får se sidan eller ska redirectas till inloggningsidan
-//om användaren är inloggad visas ett form för att skriva kommentarer samt tidigare publicerade kommentarer
-
-  ?>
 <html>
     <head>
         <title> labb 1 </title>
@@ -30,10 +12,10 @@ if(count($_SESSION)>0)
   
     </head>
     <body>  
-    <form method="POST" onsubmit="return ValidateComment()"action="comment_process.php" ;>
+    <form method="POST" onsubmit="return ValidateDelete()"action="DeleteComment_process.php" ;>
       
-        <label for="message">Meddelande:</label><br>
-        <textarea id="message" name= "message" rows="10" cols="50"> </textarea><br>
+        <label for="delete">Sök:</label><br>
+        <input type =" text" id="delete" name= "delete" ><br>
         <input type="submit" value="Submit">
 </form>
 
@@ -43,9 +25,13 @@ if(count($_SESSION)>0)
  <tr>
     <th> Från: </th>    
     <th> Meddelande: </th>
+     <th> Badplats: </th>
+     <th> Id: </th>
+     
     </tr>
 
 <?php
+$db = new SQLite3("./db/project.db");
 //query för att hämta alla kommentarer som finns i databasen för att kunna presentera dem i en tabell
 $result = $db->query ("SELECT * From Comments");
 while ($row = $result->fetchArray()) //Sa lange som en ny rad kan h¨a mtas som en array kommer den radens namn och meddelande visas i tabellen
@@ -53,6 +39,8 @@ while ($row = $result->fetchArray()) //Sa lange som en ny rad kan h¨a mtas som 
         echo "<tr>";
         echo "<td>" . $row["Name"]. "</td>";       
         echo "<td>" . $row["Message"]. "</td>";
+           echo "<td>" . $row["Badplats"]. "</td>";
+            echo "<td>" . $row["Id"]. "</td>";
         echo "</tr>";
  }
  ?>
@@ -60,11 +48,3 @@ while ($row = $result->fetchArray()) //Sa lange som en ny rad kan h¨a mtas som 
  <br></br>    
     </body>
 </html>
-<?php
-
-}
-
-else{
-    header('Location: comment.php');
-}
-?>
