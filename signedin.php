@@ -1,3 +1,6 @@
+<?php
+session_start()
+?>
 <!DOCTYPE html>
 
 <head>
@@ -38,12 +41,12 @@
 
 
     var Lerhagsbadet = L.marker([59.783759822965358, 17.638975438012828]).addTo(mymap);
-    Lerhagsbadet.bindPopup("<a href=''></a><br>");
+    Lerhagsbadet.bindPopup("<b>Lerhagsbadet</b><br><form action='badplats.php' method='post'><button type='submit' value='Läs mer'></button></form>");
     //BILD
     //läs mer
 
     var Borgardalsbadet = L.marker([59.862016492729325, 17.944113090560531]).addTo(mymap);
-    var popup = L.popup()
+    var popup = L.popup("<a href='badplats.php></a>'")
     
     var Hosjöbadet = L.marker([59.920182436125387, 18.312421647916896]).addTo(mymap);
     Hosjöbadet.bindPopup("<b>Hosjöbadet</b>");

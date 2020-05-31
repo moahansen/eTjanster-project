@@ -6,8 +6,8 @@ session_start();
 //Kollar om användaren är inloggad för att veta om denne får se sidan eller ska redirectas till inloggningsidan
 if($_SESSION['loggedIn'])
 {
+?>
 
-  ?>
 <html>
     <head>
         <title> labb 1 </title>
