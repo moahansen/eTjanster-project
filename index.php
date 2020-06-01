@@ -1,9 +1,9 @@
 <?php
 session_start();
-
+ 
 ?>
 <!DOCTYPE html>
-
+ 
 <head>
     <link rel="stylesheet" type="text/css" href="css/style.css">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
@@ -14,9 +14,9 @@ session_start();
    crossorigin=""></script>
    
 </head>
-
+ 
 <body>
-
+ 
 <?php
 if(count($_SESSION)>0)
 {
@@ -48,17 +48,17 @@ if(count($_SESSION)>0)
 </ul>
 <?php
    }
-
+ 
 ?>
 <div id="bodyDiv">  
-
+ 
     <div id="mapid">
         class="leaflet-container leaflet-fade-anim leaflet grab leaflet-touch-drag" tabindex="0">
     </div>
-
+ 
 <script>
     var mymap = L.map('mapid').setView([59.858, 17.647], 10);
-
+ 
     L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
     maxZoom: 18,
@@ -67,29 +67,35 @@ if(count($_SESSION)>0)
     zoomOffset: -1,
     accessToken: 'pk.eyJ1IjoibW9haGFuc2VuIiwiYSI6ImNrYWYxMHhlNTAwYzUyeW82bzN2aGxjMzIifQ.c8yTwa5sopvpDb3vkfhntg'
     }).addTo(mymap);
-
-
-
+ 
+</script>
+ 
+<p id="namn"></p>
+<script>
+    var src='["https://kartor.uppsala.se/ags02/rest/services/iExternaKartan/ParkNaturFriluft/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=json"]';
+    var attribut = JSON.parse(src);
+    document.getElementById("namn").innerHTML = attribut.features.attributes.OBJECTID; 
+ 
     var Lerhagsbadet = L.marker([59.783759822965358, 17.638975438012828]).addTo(mymap);
     Lerhagsbadet.bindPopup("<b>Lerhagsbadet</b><br><form action='badplats.php' method='post'><button type='submit' name='badplats' value='Lerhagsbadet'>Läs mer</button></form>");
     //BILD
     //läs mer
-
+ 
     var Borgardalsbadet = L.marker([59.862016492729325, 17.944113090560531]).addTo(mymap);
     var popup = L.popup("<b>Borgardalsbadet</b><br><form action='badplats.php' method='post'><button type='submit' name='badplats' value='Borgardalsbadet'>Läs mer</button></form>")
     
     var Hosjöbadet = L.marker([59.920182436125387, 18.312421647916896]).addTo(mymap);
     Hosjöbadet.bindPopup("<b>Hosjöbadet</b><br><form action='badplats.php' method='post'><button type='submit' name='badplats' value='Hosjöbadet'>Läs mer</button></form>");
-
+ 
     var Södersjöbadet = L.marker([59.84889063256643, 18.118887933172129]).addTo(mymap);
     Södersjöbadet.bindPopup("<b>Södersjöbadet</b><br><form action='badplats.php' method='post'><button type='submit' name='badplats' value='Södersjöbadet'>Läs mer</button></form>");
-
+ 
     var Näsuddsbadet = L.marker([59.881095531098872, 17.866628707176499]).addTo(mymap);
     Näsuddsbadet.bindPopup("<b>Näsuddsbadet</b><br><form action='badplats.php' method='post'><button type='submit' name='badplats' value='Näsuddsbadet'>Läs mer</button></form>");
-
+ 
     var Fjällnorabadet = L.marker([59.832085592668903, 17.911641888022277]).addTo(mymap);
     Fjällnorabadet.bindPopup("<b>Fjällnorabadet</b><br><form action='badplats.php' method='post'><button type='submit' name='badplats' value='Fjällnorabadet'>Läs mer</button></form>");
-
+ 
     var Fjällnora_naturistbad = L.marker([59.830393126801773, 17.913534147161155]).addTo(mymap);
     Fjällnora_naturistbad.bindPopup("<b>Fjällnora naturistbadet</b><br><form action='badplats.php' method='post'><button type='submit' name='badplats' value='Fjällnora naturistbad'>Läs mer</button></form>");
     
@@ -140,10 +146,10 @@ if(count($_SESSION)>0)
     
     var Storvads_hundbad = L.marker([59.904931986938337, 17.623703543865702]).addTo(mymap);
     Storvads_hundbad.bindPopup("<b>Storvads hundbad</b><br><form action='badplats.php' method='post'><button type='submit' name='badplats' value='Storvads hundbad'>Läs mer</button></form>");
-
+ 
     //https://kartor.uppsala.se/ags02/rest/services/iExternaKartan/ParkNaturFriluft/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=json
 </script>
 </div>
-
+ 
 </body>
 </html>
