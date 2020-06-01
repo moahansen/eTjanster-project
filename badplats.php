@@ -1,16 +1,28 @@
+
 <?php
 //startar session
 session_start();
+<<<<<<< HEAD
+
+//lagrar vilken badplats användaren kommer ifårn i variabel
+$badplats = $_POST['badplats'];
+
+=======
  
 //lagrar vilken badplats användaren kommer ifårn i variabel
 $badplats = $_POST['badplats'];
  
+>>>>>>> ec6f934c874b8debe0ec10b27c4b785fa4a5dfee
 //skriver ut badplatsen
 echo($badplats);
 echo('<br>');
  
 ?>
+<<<<<<< HEAD
+
+=======
  
+>>>>>>> ec6f934c874b8debe0ec10b27c4b785fa4a5dfee
 <html>
     <head>
        <script type="text/javascript" src="js/comment_validation.js"> </script>
@@ -20,7 +32,11 @@ echo('<br>');
 <p id="buss"></p>
 <p id="grill"></p>
 <p id="hopp"></p>
+<<<<<<< HEAD
+
+=======
  
+>>>>>>> ec6f934c874b8debe0ec10b27c4b785fa4a5dfee
 <script>
     src="https://kartor.uppsala.se/ags02/rest/services/iExternaKartan/ParkNaturFriluft/MapServer/0/query?where==1%3D1&outFields=*&outSR=4326&f=json";
     alert(src);
@@ -29,12 +45,21 @@ echo('<br>');
     document.getElementById("grill").innerHTML = attribut.info[0].GRILLPLATS;
     document.getElementById("hopp").innerHTML = attribut.info[0].HOPPTORN;
 </script>
+<<<<<<< HEAD
+
+<noscript><a href="https://opendata.arcgis.com/datasets/aadc5420e8884d32b2efe0d10fbfdfe5_99.geojson"></a></noscript>
+
+<script src="https://www.yr.no/place/Sweden/Uppsala/Uppsala_Municipality/external_box_hour_by_hour.js"></script>
+<noscript><a href="https://www.yr.no/place/Sweden/Uppsala/Uppsala_Municipality/">yr.no: Forecast for Uppsala Municipality</a></noscript>
+
+=======
  
 <noscript><a href="https://opendata.arcgis.com/datasets/aadc5420e8884d32b2efe0d10fbfdfe5_99.geojson"></a></noscript>
  
 <script src="https://www.yr.no/place/Sweden/Uppsala/Uppsala_Municipality/external_box_hour_by_hour.js"></script>
 <noscript><a href="https://www.yr.no/place/Sweden/Uppsala/Uppsala_Municipality/">yr.no: Forecast for Uppsala Municipality</a></noscript>
  
+>>>>>>> ec6f934c874b8debe0ec10b27c4b785fa4a5dfee
 <?php 
   //om antalet sessionsvariabler är större än noll visas logga ut samt tillbaka knapp samt ett form för att posta kommentar
 if(count($_SESSION)>0)
@@ -46,7 +71,11 @@ if(count($_SESSION)>0)
     <a href="logout_process.php" class="btn">Logga ut </a>
    <a href="index.php" class="btn">Tillbaka </a>
 </ul>
+<<<<<<< HEAD
+
+=======
  
+>>>>>>> ec6f934c874b8debe0ec10b27c4b785fa4a5dfee
     <form method="POST" onsubmit="return ValidateComment()"action="comment_process.php" ;>
         <label for="message">Lämna en kommentar:</label><br>
         <p>Inloggad som <?php $_SESSION['name']?></p>
@@ -121,23 +150,17 @@ $db = new SQLite3("./db/project.db");
 
 </ul>
 
-
-
-<table class ="gridtable" border= "2">
- <tr>
-    <th> Från: </th>    
-    <th> Meddelande: </th>
-    </tr>
-
 <?php
 //query för att hämta alla kommentarer som finns i databasen för att kunna presentera dem i en tabell
 $result = $db->query ("SELECT * From Comments  WHERE Badplats = '".$_POST['badplats']."'");
 while ($row = $result->fetchArray()) //Sa lange som en ny rad kan h¨a mtas som en array kommer den radens namn och meddelande visas i tabellen
  {
-        echo "<tr>";
-        echo "<td>" . $row["Name"]. "</td>";       
-        echo "<td>" . $row["Message"]. "</td>";
-        echo "</tr>";
+    echo("Användare: ");
+    echo($row["Name"]);
+    echo("<br>");
+    echo("Kommentar: ");
+    echo($row["Message"]);
+    echo "<br><br>";
  }
 
 }

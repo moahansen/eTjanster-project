@@ -1,37 +1,28 @@
 <html>
     <head>
-        <title>Registrering</title>
-        <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
+        <title> labb 1 </title>
+        <link rel="stylesheet" type="text/css" href="myStyle.css">
          <script type="text/javascript" src="js/register_validation.js"> </script>
         
-  
+  <a href="index.php" class="btn">Tillbaka</a> <br>
 
           
     </head>
     <body>
-
-    <div class="header">
-        <a href="index.php" class="btn">Tillbaka</a> <br>
-    </div>
-
-    <div class="wrapper">
-          <form class="Register-loginForm" method="POST" onsubmit="return ValidateRegister()"action="register_process.php" ;>
-      <h3>Registrera dig!</h3>
-      <hr>
+        
+    <form method="POST" onsubmit="return ValidateRegister()"action="register_process.php" ;>
+      
 
         <label for="name">Namn:</label><br>
-        <input type = "text" id="name" name="name"><br><br>
+        <input type = "text" id="name" name="name"><br>
 
         <label for="email">Mailadress</label><br>
-        <input type = "text" id="email" name="email"><br><br>
+        <input type = "text" id="email" name="email"><br>
 
         <label for="password">Lösenord:</label><br>
-        <input type = "text" id="password" name="password"><br><br>
+        <input type = "text" id="password" name="password"><br>
 
-        <button type="submit" value="Submit">Submit</button>
+        <input type="submit" value="Submit">
 </form>
-    </div>
-        
-  
 </body>
 </html>

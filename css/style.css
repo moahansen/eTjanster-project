@@ -1,7 +1,7 @@
 
 body{
     margin:0px;
-    background-image: url(../img/bg-img.jpeg);
+    background-image: url(../img/bg-img\ -\ kopia.jpeg);
     font-family: Arial Nova;
 }
 
@@ -39,7 +39,6 @@ body{
     padding-left:15px;
     padding-right:15px;
     border-radius: 10px 10px 10px 10px;
-    margin-right:10px;
     
 }
 
@@ -48,30 +47,11 @@ body{
     padding: 30px;
     text-align: center;
     background-color:rgb(255, 255, 255);
-    width: 100%;
 }
 
 #mapid{
-    margin:0%;
-    width: 900px; 
-    height: 500px; 
+    width: 600px; 
+    height: 400px; 
     position: relative;
     border-radius: 6px 6px 6px 6px;
-    margin-left: 20%;
-    margin-bottom:10%;
-}
-.header{
-    background-color:rgba(132, 218, 233, 0.651);
-    margin: 0%;
-    padding-top: 2%;
-    padding-bottom:1%;
-}
-#info{
-    padding: 10px;
-    background-color:rgba(0, 0, 255, 0.164);
-    width:600px;
-    margin-left: 30%;
-    background-color: rgba(255, 166, 0, 0.534);
-    text-align: center;
-    margin-bottom: 20px;
 }
