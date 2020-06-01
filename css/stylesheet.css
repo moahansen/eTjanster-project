@@ -1,0 +1,53 @@
+body{
+    margin:0px;
+    background-color: lightblue;
+    font-family: Arial Nova;
+}
+
+
+#meny{
+    background-color:rgba(132, 218, 233, 0.651);
+    margin-top: 0px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+#meny li{
+    display:inline;
+    margin-left: 30px;
+}
+
+#meny a{
+    text-decoration: none;
+    color: inherit;
+    font-size: 18px;
+}
+.Register-loginForm{
+    background-color:rgb(255, 255, 255);
+}
+
+.Register-loginForm input{
+    padding-right: 6%;
+}
+
+.wrapper{
+    margin-left:24%;
+    width: 50%;
+    text-align: center;
+    margin-top: 10%;
+    border-radius: 8px 8px 8px 8px;
+}
+
+.header{
+    background-color:rgba(132, 218, 233, 0.651);
+    margin: 0%;
+    padding-top: 2%;
+    padding-bottom:1%;
+}
+
+#tillbakaBtn{
+    color:inherit;
+    text-decoration:none;
+    margin-left: 30px;
+}
+

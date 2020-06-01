@@ -1,9 +1,3 @@
-<html>
-    <head>
-       <script type="text/javascript" src="js/comment_validation.js"> </script>
-    </head>
-</html>
-
 <?php
 //startar session
 session_start();
@@ -15,6 +9,16 @@ echo('<br>');
 
 ?>
 
+
+<html>
+    <head>
+       <script type="text/javascript" src="js/comment_validation.js"> </script>
+       <link rel="stylesheet" type= "text/css" href="css/stylesheet.css">
+    </head>
+</html>
+
+
+
 <p>Attribut:</p>
 
 
@@ -22,7 +26,7 @@ echo('<br>');
     var badplats = <?php echo json_encode($badplats) ?>
     alert(badplats);
 
-    src="https://kartor.uppsala.se/ags02/rest/services/iExternaKartan/ParkNaturFriluft/MapServer/0/query?where=NAMN='badplats'&outFields=*&outSR=4326&f=json";
+    src="https://kartor.uppsala.se/ags02/rest/services/iExternaKartan/ParkNaturFriluft/MapServer/0/query?where=NAMN='"+<?=$badplats?>+"'&outFields=*&outSR=4326&f=json";
   
     <noscript><a href="https://opendata.arcgis.com/datasets/aadc5420e8884d32b2efe0d10fbfdfe5_99.geojson"></a></noscript>
 </script>

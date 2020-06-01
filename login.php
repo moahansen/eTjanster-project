@@ -1,24 +1,30 @@
 <html>
     <head>
         <title> labb 1 </title>
-        <link rel="stylesheet" type="text/css" href="signedin.css">
+        <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
          <script type="text/javascript" src="js/login_validation.js"> </script>
-         
-<a href="index.php" class="btn">Tillbaka</a> <br> 
   
     </head>
     <body>
+    
+    <div class="header">
+        <a id="tillbakaBtn" href="index.php" class="btn">Tillbaka</a>
+    </div>
 
-    <form method="POST" onsubmit="return LoginValidation()"action="login_process.php" ;>
-        <h2> Logga in </h2>
+    <div class="wrapper">
+    <form class="Register-loginForm" method="POST" onsubmit="return LoginValidation()"action="login_process.php" ;>
+    <br>
+        <h3> Logga in </h3>
+        <hr>
       
         <label for="email">Mailadress</label><br>
-        <input type = "text" id="email" name="email"><br>
+        <input type = "text" id="email" required name="email"><br><br>
 
         <label for="password">Lösenord:</label><br>
-        <input type = "text" id="password" name="password"><br>
+        <input type = "password" required id="password" name="password"><br><br>
 
-        <input type="submit" value="Submit">
+        <button type="submit" value="Submit">Submit</button><br><br>
+</div>
 </form>
 </body>
 </html>
